@@ -13,9 +13,11 @@ import {LoginPage} from "../pages/login/login";
 export class MyApp {
   rootPage: any = LoginPage;
   loader: any;
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
               public loadingCtrl: LoadingController,
               public authProvider: AuthProvider) {
+
     this.presentLoading();
     this.authProvider.login().then((isLoggedIn) => {
       if (isLoggedIn) {
@@ -26,6 +28,7 @@ export class MyApp {
       this.loader.dismiss();
     });
   }
+
   presentLoading() {
     this.loader = this.loadingCtrl.create({
       content: "Authentication",

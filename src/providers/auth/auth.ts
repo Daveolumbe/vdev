@@ -19,7 +19,7 @@ export class AuthProvider {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(true);
-      }, 30000);
+      }, 3000);
     });
   }
 
