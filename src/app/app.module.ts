@@ -18,7 +18,6 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     LoginPage
   ],
   imports: [
@@ -30,7 +29,6 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     LoginPage
   ],
   providers: [
