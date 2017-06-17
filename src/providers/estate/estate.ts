@@ -22,8 +22,8 @@ export class EstateProvider {
 
   getAllData() {
     return this.http.get(this.url)
-      .do(this.logResponse)
       .map(this.extractData)
+      .do(this.logResponse)
       .catch(this.catchError);
   }
 

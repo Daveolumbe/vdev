@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 import {EstateProvider} from "../../providers/estate/estate";
@@ -25,12 +25,12 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.afAuth.authState.subscribe(data => {
-      if(data && data.email && data.uid) {
+      if (data && data.email && data.uid) {
         this.toasrt.create({
           message: `Welsome to Visilinx, ${data.email}`,
           duration: 3000
         }).present();
-      }else{
+      } else {
         this.toasrt.create({
           message: `Could not find authentication details`,
           duration: 3000
@@ -39,7 +39,7 @@ export class HomePage {
     });
   }
 
-  getMessage(){
+  getMessage() {
     this.estateService.getAllData().subscribe(data => console.log(data));
   }
 
