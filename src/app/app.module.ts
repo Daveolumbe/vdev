@@ -12,6 +12,8 @@ import { AuthProvider } from '../providers/auth/auth';
 
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import {WelcomePage} from "../pages/welcome/welcome";
+import { EstateProvider } from '../providers/estate/estate';
+import {HttpModule} from "@angular/http";
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import {WelcomePage} from "../pages/welcome/welcome";
     BrowserModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     IonicModule.forRoot(MyApp),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,7 +37,8 @@ import {WelcomePage} from "../pages/welcome/welcome";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    EstateProvider
   ]
 })
 export class AppModule {}

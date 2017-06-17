@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
+import {EstateProvider} from "../../providers/estate/estate";
 
 /**
  * Generated class for the HomePage page.
@@ -15,8 +16,11 @@ import {AngularFireAuth} from "angularfire2/auth";
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth,
-  private toasrt: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private afAuth: AngularFireAuth,
+              private toasrt: ToastController,
+              private estateService: EstateProvider) {
+    this.getMessage();
   }
 
   ionViewDidLoad() {
@@ -33,6 +37,10 @@ export class HomePage {
         }).present();
       }
     });
+  }
+
+  getMessage(){
+    this.estateService.getAllData().subscribe(data => console.log(data));
   }
 
 }
