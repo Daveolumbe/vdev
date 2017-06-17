@@ -5,7 +5,7 @@
     <ion-slide *ngFor="let slide of slides">
       <ion-toolbar>
         <ion-buttons end>
-          <button ion-button color="primary">Skip</button>
+          <button ion-button color="primary" (click)="login()">Skip</button>
         </ion-buttons>
       </ion-toolbar>
       <img [src]="slide.image" class="slide-image"/>
@@ -16,8 +16,8 @@
       <ion-toolbar>
       </ion-toolbar>
       <img src="../../assets/slide3.png" class="slide-image"/>
-      <h2 class="slide-title">Ready to Play?</h2>
-      <button ion-button large icon-end round  color="secondary" (click)="login()">
+      <h2 class="slide-title">Getting Started</h2>
+      <button ion-button large icon-end round  outline color="secondary" (click)="login()">
         Login
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
