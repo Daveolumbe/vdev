@@ -3,14 +3,14 @@ import {LoadingController, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {AuthProvider} from "../providers/auth/auth";
-import {LoginPage} from "../pages/login/login";
+import {WelcomePage} from "../pages/welcome/welcome";
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = LoginPage;
+  rootPage: any = WelcomePage;
   loader: any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
