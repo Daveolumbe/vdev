@@ -1,6 +1,12 @@
 page-welcome {
+
+  #bg{
+    background: #51a7e8;
+    color: #fff;
+  }
+
   .toolbar-background {
-    background: #fff;
+    background: #51a7e8;
     border-color: transparent;
   }
 
@@ -26,10 +32,10 @@ page-welcome {
     padding: 0 40px;
     font-size: 14px;
     line-height: 1.5;
-    color: #60646B;
+    color: #fff;
 
     b {
-      color: #000000;
+      color: #ddd;
     }
   }
 }
