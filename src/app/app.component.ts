@@ -18,15 +18,15 @@ export class MyApp {
               public loadingCtrl: LoadingController,
               public authProvider: AuthProvider) {
 
-    this.presentLoading();
-    this.authProvider.login().then((isLoggedIn) => {
-      if (isLoggedIn) {
-        this.rootPage = HomePage;
-      } else {
-        this.rootPage = LoginPage;
-      }
-      this.loader.dismiss();
-    });
+   // this.presentLoading();
+   //  this.authProvider.login().then((isLoggedIn) => {
+   //    if (isLoggedIn) {
+   //      this.rootPage = HomePage;
+   //    } else {
+   //      this.rootPage = LoginPage;
+   //    }
+   //    this.loader.dismiss();
+   //  });
   }
 
   presentLoading() {
