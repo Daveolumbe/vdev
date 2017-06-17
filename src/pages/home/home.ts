@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {AngularFireAuth} from "angularfire2/auth";
 
 /**
  * Generated class for the HomePage page.
@@ -14,11 +15,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth,
+  private toasrt: ToastController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+    this.afAuth.authState.subscribe(data => {
+      if(data.email && data.uid) {
+        this.toasrt.create({
+          message: `Welsome to Visilinx, ${data.email}`,
+          duration: 3000
+        }).present();
+      }else{
+        this.toasrt.create({
+          message: `Could not find authentication details`,
+          duration: 3000
+        }).present();
+      }
+    });
   }
 
 }
