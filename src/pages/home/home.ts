@@ -21,7 +21,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.afAuth.authState.subscribe(data => {
-      if(data.email && data.uid) {
+      if(data && data.email && data.uid) {
         this.toasrt.create({
           message: `Welsome to Visilinx, ${data.email}`,
           duration: 3000
