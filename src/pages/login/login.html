@@ -1,5 +1,5 @@
 
-<ion-content padding>
+<ion-content padding id="bg">
   <div>
     <img src="../../assets/logo-ion.png" width="200" class="image"/>
   </div>
@@ -16,10 +16,12 @@
     </ion-item>
 
   </ion-list>
-  <button ion-button icon-only icon-end color="primary" (click)="login(user)" block round outline>Sign In
+  <button ion-button icon-only icon-end color="primary" (click)="login(user)" block round>Sign In
     <ion-icon name="log-in"></ion-icon>
   </button>
-  <button  ion-button icon-only icon-end color="danger" (click)="register()" round outline block>Register
-    <ion-icon name="contact" ></ion-icon>
-  </button>
+  <div id="footer">
+
+  </div>
+  <p icon-only icon-end color="danger" (click)="register()">Sign up for Visilinx
+  </p>
 </ion-content>
