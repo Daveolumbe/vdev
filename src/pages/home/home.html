@@ -1,12 +1,21 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Dashboard</ion-title>
+    <ion-title>Guest Check-in</ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content padding class="bg-color img-bg">
+  <h1><img src="../../assets/checkin.png" width="40%"></h1>
+  <ion-list>
+    <ion-item>
+      <ion-label float>Entry Code</ion-label>
+      <ion-input type="text" placeholder="Enter Guest Access Code"></ion-input>
+    </ion-item>
 
-<ion-content padding>
+  </ion-list>
+
+  <button ion-button large block color="primary" round>
+    <ion-icon name="people" end></ion-icon> Check me in
+  </button>
 
 </ion-content>
