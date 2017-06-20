@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import { User } from '../../models/user';
 import {AngularFireAuth} from "angularfire2/auth";
 
@@ -9,12 +9,18 @@ import {AngularFireAuth} from "angularfire2/auth";
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  loader: any;
   user = {} as User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth,  public loadingCtrl: LoadingController) {
 
+  }
+  presentLoading() {
+    this.loader = this.loadingCtrl.create({
+      content: "Authentication",
+    });
+    this.loader.present();
+  }
   // ionViewDidLoad() {
   //   console.log('ionViewDidLoad LoginPage');
   // }
@@ -24,7 +30,9 @@ export class LoginPage {
       const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       console.log(result);
       if(result){
+        this.presentLoading();
         this.navCtrl.setRoot('HomePage');
+        this.loader.dismiss();
       }
     }
     catch (e){
