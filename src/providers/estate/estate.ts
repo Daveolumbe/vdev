@@ -14,9 +14,8 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class EstateProvider {
 
-  guestPin:  number;
-
-  private url: string = 'https://api.mlab.com/api/1/databases/eamsdevdb/collections/Companies?apiKey=_y0CqqgMFT7QU8Yv-yJIWdlYAs1-YiWJ';
+  private key: string = '_y0CqqgMFT7QU8Yv-yJIWdlYAs1-YiWJ';
+  private url: string = 'https://api.mlab.com/api/1/databases/eamsdevdb/collections/Companies?';
   private guestUrl : string = 'https://api.mlab.com/api/1/databases/eamsdevdb/collections/VisitorsTbl?';
 
   constructor(private http: Http) {
@@ -25,15 +24,15 @@ export class EstateProvider {
 
 
 
-  getAllData() {
-    return this.http.get(this.url)
+  getAllData(value) {
+    return this.http.get(this.url + 'q={"Email": '+ JSON.stringify(value) +'}&apiKey=' + this.key)
       .map(this.extractData)
       .do(this.logResponse)
       .catch(this.catchError);
   }
 
   checkInGuest(value){
-      return this.http.get(this.guestUrl + 'q={"AccessCode": '+ value +'}&apiKey=_y0CqqgMFT7QU8Yv-yJIWdlYAs1-YiWJ')
+      return this.http.get(this.guestUrl + 'q={"AccessCode": '+ value +'}&apiKey=' + this.key)
         .map(this.extractData)
         .do(this.logResponse)
         .catch(this.catchError);

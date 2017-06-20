@@ -22,12 +22,13 @@ export class HomePage {
               private afAuth: AngularFireAuth,
               private toasrt: ToastController,
               private estateService: EstateProvider) {
-    this.getMessage();
   }
 
   ionViewDidLoad() {
     this.afAuth.authState.subscribe(data => {
       if (data && data.email && data.uid) {
+
+        this.getMessage(data.email);
         this.toasrt.create({
           message: `Welsome to Visilinx, ${data.email}`,
           duration: 3000
@@ -49,8 +50,8 @@ export class HomePage {
     }
   }
 
-  getMessage() {
-    this.estateService.getAllData().subscribe(data => console.log(data));
+  getMessage(value) {
+    this.estateService.getAllData(value).subscribe(data => console.log(data));
   }
 
 }
