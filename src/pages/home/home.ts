@@ -42,7 +42,11 @@ export class HomePage {
   }
 
   checkGuestIn() {
-    this.estateService.checkInGuest(this.guestPin).subscribe(data => console.log(data))
+    if (!this.guestPin) {
+      return false;
+    } else {
+      this.estateService.checkInGuest(this.guestPin).subscribe(data => console.log(data))
+    }
   }
 
   getMessage() {
