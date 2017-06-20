@@ -48,10 +48,11 @@ export class HomePage {
     if (!this.guestPin) {
       return false;
     } else {
-      this.estateService.checkInGuest(this.guestPin).subscribe(data => {
+      this.estateService.checkInGuest(this.guestPin).subscribe((data) => {
+          console.log(data);
         let modal = this.modalCtrl.create(GuestPage);
         modal.present();
-      })
+      });
     }
   }
 
