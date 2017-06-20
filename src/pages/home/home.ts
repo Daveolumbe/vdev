@@ -16,6 +16,8 @@ import {EstateProvider} from "../../providers/estate/estate";
 })
 export class HomePage {
 
+  guestPin: {AccessCode: string};
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private afAuth: AngularFireAuth,
               private toasrt: ToastController,
@@ -37,6 +39,10 @@ export class HomePage {
         }).present();
       }
     });
+  }
+
+  checkGuestIn() {
+    this.estateService.checkInGuest().subscribe(data => console.log(data))
   }
 
   getMessage() {

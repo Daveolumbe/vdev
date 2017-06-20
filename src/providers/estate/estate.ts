@@ -14,17 +14,29 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class EstateProvider {
 
+  guestPin: {AccessCode: string};
+
   private url: string = 'https://api.mlab.com/api/1/databases/eamsdevdb/collections/Companies?apiKey=_y0CqqgMFT7QU8Yv-yJIWdlYAs1-YiWJ';
+  private guestUrl : string = 'https://api.mlab.com/api/1/databases/eamsdevdb/collections/VisitorsTbl?apiKey=_y0CqqgMFT7QU8Yv-yJIWdlYAs1-YiWJ';
 
   constructor(private http: Http) {
     console.log('Hello EstateProvider Provider');
   }
+
+
 
   getAllData() {
     return this.http.get(this.url)
       .map(this.extractData)
       .do(this.logResponse)
       .catch(this.catchError);
+  }
+
+  checkInGuest(){
+      return this.http.get(this.guestUrl)
+        .map(this.extractData)
+        .do(this.logResponse)
+        .catch(this.catchError);
   }
 
   private logResponse(res: Response){

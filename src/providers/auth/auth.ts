@@ -15,12 +15,6 @@ export class AuthProvider {
   //   console.log('Hello AuthProvider Provider');
   // }
 
-  login() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 30000);
-    });
-  }
+
 
 }

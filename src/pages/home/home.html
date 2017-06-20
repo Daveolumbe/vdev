@@ -6,15 +6,14 @@
 
 <ion-content padding class="bg-color img-bg">
   <h1><img src="../../assets/checkin.png" width="40%"></h1>
-  <ion-list>
+  <ion-list class="check-input">
     <ion-item>
-      <ion-label float>Entry Code</ion-label>
-      <ion-input type="text" placeholder="Enter Guest Access Code"></ion-input>
+      <ion-label floats>Entry Code</ion-label>
+      <ion-input type="number" [(ngModel)]="guestUrl" placeholder="Enter Guest Access Code"></ion-input>
     </ion-item>
-
   </ion-list>
 
-  <button ion-button large block color="primary" round>
+  <button ion-button large block outline color="light" (click)="checkGuestIn()" round>
     <ion-icon name="people" end></ion-icon> Check me in
   </button>
 

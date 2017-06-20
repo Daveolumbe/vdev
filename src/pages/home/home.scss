@@ -7,10 +7,18 @@ page-home {
     padding: 30px;
   }
 
+  .header-bg{
+    background: #e2b102;
+  }
 
+  .check-input {
+    background: transparent;
+    border: none;
+  }
 
   .img-bg {
-//    background-image: url("../../assets/blue_and_red.jpg");
+    background-image: url("../../assets/blue_and_red.jpg");
+    background: #00416f;
     color: #e2de1b;
     text-align: center;
     font-family: "Segoe UI", "Noto Sans", sans-serif;
