@@ -14,12 +14,14 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
 import {WelcomePage} from "../pages/welcome/welcome";
 import { EstateProvider } from '../providers/estate/estate';
 import {HttpModule} from "@angular/http";
+import {GuestPage} from "../pages/guest/guest";
 
 
 @NgModule({
   declarations: [
     MyApp,
-    WelcomePage
+    WelcomePage,
+    GuestPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import {HttpModule} from "@angular/http";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    WelcomePage
+    WelcomePage,
+    GuestPage
   ],
   providers: [
     StatusBar,

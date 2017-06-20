@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams, ToastController} from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 import {EstateProvider} from "../../providers/estate/estate";
+import {GuestPage} from "../guest/guest";
 
 /**
  * Generated class for the HomePage page.
@@ -21,6 +22,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private afAuth: AngularFireAuth,
               private toasrt: ToastController,
+              private modalCtrl: ModalController,
               private estateService: EstateProvider) {
   }
 
@@ -46,7 +48,10 @@ export class HomePage {
     if (!this.guestPin) {
       return false;
     } else {
-      this.estateService.checkInGuest(this.guestPin).subscribe(data => console.log(data))
+      this.estateService.checkInGuest(this.guestPin).subscribe(data => {
+        let modal = this.modalCtrl.create(GuestPage);
+        modal.present();
+      })
     }
   }
 
