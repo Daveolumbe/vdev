@@ -16,7 +16,7 @@ import {EstateProvider} from "../../providers/estate/estate";
 })
 export class HomePage {
 
-  guestPin: {AccessCode: string};
+  guestPin: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private afAuth: AngularFireAuth,
@@ -42,7 +42,7 @@ export class HomePage {
   }
 
   checkGuestIn() {
-    this.estateService.checkInGuest().subscribe(data => console.log(data))
+    this.estateService.checkInGuest(this.guestPin).subscribe(data => console.log(data))
   }
 
   getMessage() {
