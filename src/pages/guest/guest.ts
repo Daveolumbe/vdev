@@ -18,7 +18,13 @@ export class GuestPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GuestPage');
+    console.log('ionViewDidLoad GuestPage ' + JSON.stringify(this.navParams.get('data')));
+
+    this.displayGuestInfo();
+  }
+
+  displayGuestInfo(){
+
   }
 
 }

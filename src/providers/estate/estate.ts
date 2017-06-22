@@ -34,12 +34,16 @@ export class EstateProvider {
   checkInGuest(value){
       return this.http.get(this.guestUrl + 'q={"AccessCode": '+ value +'}&apiKey=' + this.key)
         .map(this.extractData)
-        .do(this.logResponse)
+        .do(this.logResponseGuestInfo)
         .catch(this.catchError);
   }
 
   private logResponse(res: Response){
       console.log(res);
+  }
+
+  private logResponseGuestInfo(res: Response){
+    console.log(res);
   }
 
   private extractData(res: Response){

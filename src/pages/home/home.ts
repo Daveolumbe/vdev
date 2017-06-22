@@ -30,7 +30,6 @@ export class HomePage {
     this.afAuth.authState.subscribe(data => {
       if (data && data.email && data.uid) {
 
-        this.getMessage(data.email);
         this.toasrt.create({
           message: `Welsome to Visilinx, ${data.email}`,
           duration: 3000
@@ -49,9 +48,8 @@ export class HomePage {
       return false;
     } else {
       this.estateService.checkInGuest(this.guestPin).subscribe((data) => {
-          console.log(data.length);
           if(data.length !== 0){
-            let modal = this.modalCtrl.create(GuestPage);
+            let modal = this.modalCtrl.create(GuestPage, {data: data});
             modal.present();
           }else {
             console.error('not found')
