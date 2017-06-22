@@ -49,9 +49,14 @@ export class HomePage {
       return false;
     } else {
       this.estateService.checkInGuest(this.guestPin).subscribe((data) => {
-          console.log(data);
-        let modal = this.modalCtrl.create(GuestPage);
-        modal.present();
+          console.log(data.length);
+          if(data.length !== 0){
+            let modal = this.modalCtrl.create(GuestPage);
+            modal.present();
+          }else {
+            console.error('not found')
+          }
+
       });
     }
   }
