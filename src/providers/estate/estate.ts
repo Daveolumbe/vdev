@@ -43,6 +43,7 @@ export class EstateProvider {
   }
 
   private logResponseGuestInfo(res: Response){
+
     console.log(res);
   }
 
